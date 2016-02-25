@@ -19,7 +19,7 @@ document.addEventListener('deviceready', () => {
         "timeout" : 10000, //before connect_error and connect_timeout are emitted.
         "transports" : ["websocket"]
     };
-    var socket =  io.connect('ws://192.168.0.102:8080', connectionOptions);
+    var socket =  io.connect('ws://localhost:8080', connectionOptions);
     store.dispatch({
         type: constants.SET_SOCKET,
         socket

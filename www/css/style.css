@@ -7836,7 +7836,8 @@ button.close {
   bottom: 40px;
   top: 60px;
   overflow-y: scroll;
-  position: fixed; }
+  position: fixed;
+  width: 100%; }
 
 #fountainG {
   width: 144px;

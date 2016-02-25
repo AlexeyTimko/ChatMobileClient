@@ -66,8 +66,8 @@ class Auth extends React.Component {
                 <div className="form-group">
                     <button className="btn btn-primary btn-lg btn-block"
                             disabled={this.state.name.length < 2
-                            || this.state.password < 6
-                            || (this.state.nickname < 2 && this.state.tab == 2)}>
+                            || this.state.password.length < 6
+                            || (this.state.nickname.length < 2 && this.state.tab == 2)}>
                         {this.state.tab == 1 ? this.props.translate.ENTER : this.props.translate.SIGN_UP}
                     </button>
                 </div>
