@@ -3,7 +3,10 @@
   "SIGN_UP":"Регистрация",
   "ENTER":"Войти",
   "NAME":"Логин",
-  "NICKNAME":"Имя",
+  "NICKNAME":"Ник",
   "PASSWORD":"Пароль",
-  "MESSAGE":"Сообщение"
+  "MESSAGE":"Сообщение",
+  "INVALID_CREDENTIALS":"Логин или пароль неверны",
+  "SERVER_ERROR":"Ошибка сервера",
+  "NAME_ALREADY_TAKEN":"Логин занят"
 }

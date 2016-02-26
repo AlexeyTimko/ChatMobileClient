@@ -42,7 +42,7 @@ class Chat extends React.Component {
             {messages}
             <form style={{position: 'fixed', bottom: 0, left: 0, right: 0}}
                   className="form-inline" onSubmit={::this.handleSubmit}>
-                <div className="input-group">
+                <div className="input-group chat-input">
                     <input type="text" name="message" placeholder={this.props.translate.MESSAGE} className="form-control"
                            value={this.state.message} onChange={::this.handleInputChange} />
                     <div className="input-group-btn">

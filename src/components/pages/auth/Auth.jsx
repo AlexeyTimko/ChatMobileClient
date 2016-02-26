@@ -77,6 +77,7 @@ class Auth extends React.Component {
 }
 export default connect(state=> {
     return {
-        translate: state.state.translations
+        translate: state.state.translations,
+        location: state.state.location
     }
 })(Auth);

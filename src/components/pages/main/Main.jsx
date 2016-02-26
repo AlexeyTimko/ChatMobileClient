@@ -19,9 +19,9 @@ class Main extends React.Component {
 
     render() {
         return <div>
-            <nav className='navbar navbar-fixed-top navbar-inverse'>
+            <nav className='navbar navbar-fixed-top bg-primary'>
+                <span href="#" className="navbar-brand">{this.props.location}</span>
                 <i className="navbar-brand pull-right glyphicon glyphicon-cog"/>
-                <Link className="navbar-brand pull-right glyphicon glyphicon-home" to="/"/>
             </nav>
             {this.props.children}
             <Chat/>
@@ -31,6 +31,7 @@ class Main extends React.Component {
 export default connect(state=> {
     return {
         state: state.state,
-        translate: state.state.translations
+        translate: state.state.translations,
+        location: state.state.location
     }
 })(Main);

@@ -2,8 +2,11 @@
   "SIGN_IN":"Sign in",
   "SIGN_UP":"Sign up",
   "ENTER":"Enter",
-  "NAME":"Name",
+  "NAME":"Login",
   "NICKNAME":"Nickname",
   "PASSWORD":"Password",
-  "MESSAGE":"Message"
+  "MESSAGE":"Message",
+  "INVALID_CREDENTIALS":"Name or password invalid",
+  "SERVER_ERROR":"Server error",
+  "NAME_ALREADY_TAKEN":"Name already taken"
 }

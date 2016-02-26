@@ -19,5 +19,16 @@ export default function socketEvents() {
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
         });
+
+        navigator.geolocation.watchPosition((position) => {
+            let location = position.coords.latitude.toString().substr(0,6) + ':' + position.coords.longitude.toString().substr(0,6);
+            if(location != store.getState().state.location){
+                dispatch({
+                    type: constants.SET_LOCATION,
+                    location
+                });
+                socket.emit('set location', {location: store.getState().state.location});
+            }
+        });
     };
 }

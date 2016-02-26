@@ -1,12 +1,32 @@
 @import "bootstrap";
 @import "animate";
 
+.navbar.navbar-fixed-top{
+  box-shadow: 0 0px 5px 0 $brand-primary;
+}
+
 #chat-container {
   bottom: 40px;
   top: 60px;
   overflow-y: scroll;
   position: fixed;
   width: 100%;
+
+  p{
+    box-shadow: 0 0 5px 1px $brand-info;
+    width: 90%;
+    padding: 5px;
+    float: right;
+  }
+  p.self{
+    box-shadow: 0 0 5px 1px $brand-success;
+    clear: right;
+  }
+}
+
+.input-group.chat-input input,
+.input-group.chat-input button{
+  border-radius: 0;
 }
 
 //Loading animation

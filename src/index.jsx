@@ -26,7 +26,7 @@ document.addEventListener('deviceready', () => {
     });
     store.dispatch(getTranslations());
 
-    socket.on('connect', function(){
+    socket.on('connect', () => {
         store.dispatch(socketEvents());
         ReactDOM.render(
             <Provider store={store}>

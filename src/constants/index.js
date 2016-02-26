@@ -1,7 +1,5 @@
-/**
- * Created by Spard on 20.02.2016.
- */
 export const SET_SOCKET = 'SET_SOCKET';
+export const SET_LOCATION = 'SET_LOCATION';
 
 export const AJAX_PROCESSING = 'AJAX_PROCESSING';
 export const AJAX_FINISH = 'AJAX_FINISH';
