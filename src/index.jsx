@@ -7,7 +7,7 @@ import Router from 'react-router';
 import {Provider} from 'react-redux';
 import {routes} from './helpers/routes';
 import {store} from './helpers/store';
-import {getTranslations} from './actions/getTranslations';
+import setTranslations from './actions/translations';
 import socketEvents from './actions/socket-events';
 import * as constants from './constants/';
 import io from 'socket.io-client';
@@ -19,12 +19,12 @@ document.addEventListener('deviceready', () => {
         "timeout" : 10000, //before connect_error and connect_timeout are emitted.
         "transports" : ["websocket"]
     };
-    var socket =  io.connect('ws://localhost:8080', connectionOptions);
+    var socket =  io.connect('ws://109.86.67.211:8080', connectionOptions);
     store.dispatch({
         type: constants.SET_SOCKET,
         socket
     });
-    store.dispatch(getTranslations());
+    store.dispatch(setTranslations());
 
     socket.on('connect', () => {
         store.dispatch(socketEvents());

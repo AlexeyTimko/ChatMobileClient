@@ -20,5 +20,10 @@ export const routes = <Route component={App}>
     <Route path="/" component={Main} onEnter={requireAuth}>
         <Route path="chat" component={Chat} />
     </Route>
-    <Route path="/auth" component={Auth}/>
+    <Route path="/auth" component={Auth}  onEnter={(nextState, replaceState) => {
+        let auth = store.getState().auth;
+        if(auth.authorized){
+            replaceState({}, '/');
+        }
+    }}/>
 </Route>;

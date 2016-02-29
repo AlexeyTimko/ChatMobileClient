@@ -1,32 +1,73 @@
 @import "bootstrap";
 @import "animate";
+.auth-container{
+  margin-top: 35%;
+  .nav{
+    li{
+      a{
+        color: white;
+        &:hover,
+        &:focus{
+          color: white;
+          background-color: $brand-primary;
+        }
+      }
+      &.active a{
+        background-color: $brand-primary;
+      }
+    }
+  }
 
+  form{
+    padding: 20px;
+  }
+}
 .navbar.navbar-fixed-top{
   box-shadow: 0 0px 5px 0 $brand-primary;
 }
 
 #chat-container {
-  bottom: 40px;
-  top: 60px;
-  overflow-y: scroll;
-  position: fixed;
   width: 100%;
+  margin-bottom: 40px;
+  margin-top: 55px;
 
   p{
-    box-shadow: 0 0 5px 1px $brand-info;
+    border: 2px solid $brand-info;
     width: 90%;
     padding: 5px;
-    float: right;
-  }
-  p.self{
-    box-shadow: 0 0 5px 1px $brand-success;
+    background-color: rgba(255,255,255,.9);
+    border-radius: 15px;
     clear: right;
+    word-break: break-word;
+
+    strong{
+      display: block;
+    }
+    small{
+      display: block;
+      color: $gray-light;
+      font-size: x-small;
+      text-align: right;
+    }
+
+    &.self{
+      border-color: $brand-success;
+      float: right;
+
+      strong{
+        color: $brand-success
+      }
+    }
   }
 }
 
 .input-group.chat-input input,
 .input-group.chat-input button{
   border-radius: 0;
+}
+.input-group.chat-input button{
+  top: 0;
+  padding: 6px 12px 7px;
 }
 
 //Loading animation

@@ -2,7 +2,7 @@ import * as constants from '../constants/';
 
 const initialState = {
     authorized: false,
-    token: null
+    user: {token: localStorage.token || null}
 };
 export default function (state = initialState, action) {
     switch (action.type) {
@@ -10,7 +10,7 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 authorized: true,
-                token: action.token
+                user: action.user
             };
         default:
             return state;

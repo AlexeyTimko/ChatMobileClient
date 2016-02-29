@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {signIn, signUp} from '../../../actions/authorisation';
 import Input from '../../html/Input';
 
@@ -45,13 +46,17 @@ class Auth extends React.Component {
     }
 
     render() {
-        return <div className="container">
+        var signedIn = null;
+        if(this.props.auth.authorized){
+            signedIn = <Link to="/" className="btn btn-block btn-lg btn-info">{this.props.auth.user.name}</Link>;
+        }
+        return <div className="container auth-container">
             <ul className="nav nav-tabs">
                 <li className={this.state.tab==1?'active':''}>
-                    <a href="#" onClick={() => {this.setState({tab:1})}}>{this.props.translate.SIGN_IN}</a>
+                    <a href="#" onClick={event => {event.preventDefault();this.setState({tab:1});}}>{this.props.translate.SIGN_IN}</a>
                 </li>
                 <li className={this.state.tab==2?'active':''}>
-                    <a href="#" onClick={() => {this.setState({tab:2})}}>{this.props.translate.SIGN_UP}</a>
+                    <a href="#" onClick={event => {event.preventDefault();this.setState({tab:2});}}>{this.props.translate.SIGN_UP}</a>
                 </li>
             </ul>
             <form onSubmit={::this.handleSubmit}>
@@ -64,12 +69,13 @@ class Auth extends React.Component {
                 <Input type="password" name="password" label={this.props.translate.PASSWORD}
                        value={this.state.password} onChange={::this.handleInputChange}/>
                 <div className="form-group">
-                    <button className="btn btn-primary btn-lg btn-block"
+                    <button className="btn btn-success btn-lg btn-block"
                             disabled={this.state.name.length < 2
                             || this.state.password.length < 6
                             || (this.state.nickname.length < 2 && this.state.tab == 2)}>
                         {this.state.tab == 1 ? this.props.translate.ENTER : this.props.translate.SIGN_UP}
                     </button>
+                    {signedIn}
                 </div>
             </form>
         </div>;
@@ -78,6 +84,7 @@ class Auth extends React.Component {
 export default connect(state=> {
     return {
         translate: state.state.translations,
-        location: state.state.location
+        location: state.state.location,
+        auth:state.auth
     }
 })(Auth);

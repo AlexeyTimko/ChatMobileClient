@@ -8,5 +8,6 @@
   "MESSAGE":"Сообщение",
   "INVALID_CREDENTIALS":"Логин или пароль неверны",
   "SERVER_ERROR":"Ошибка сервера",
-  "NAME_ALREADY_TAKEN":"Логин занят"
+  "NAME_ALREADY_TAKEN":"Логин занят",
+  "ENTER_AS":"Войти как"
 }

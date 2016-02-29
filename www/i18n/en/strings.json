@@ -8,5 +8,6 @@
   "MESSAGE":"Message",
   "INVALID_CREDENTIALS":"Name or password invalid",
   "SERVER_ERROR":"Server error",
-  "NAME_ALREADY_TAKEN":"Name already taken"
+  "NAME_ALREADY_TAKEN":"Name already taken",
+  "ENTER_AS":"Enter as"
 }

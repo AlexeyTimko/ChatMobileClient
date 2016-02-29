@@ -33,10 +33,26 @@ class Chat extends React.Component {
             message: ''
         });
     }
+     componentDidMount(){
+         document.body.scrollTop = document.body.scrollHeight;
+     }
 
     render() {
-        let messages = _.map(this.props.messages, function(mes, key){
-            return <p key={key}><strong>{mes.user}</strong>: {mes.text}</p>;
+        let messages = _.map(this.props.messages, (mes, key) => {
+            let date = new Date(mes.date),
+                dateOptions = {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    timezone: 'UTC',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric'
+                };
+            return <p className={'text-primary ' + ((mes.userId == this.props.auth.user._id)?'self':'')}
+                      key={key}>
+                <strong>{mes.user}</strong>{mes.text}<small>{date.toLocaleString(localStorage.LANG, dateOptions)}</small>
+            </p>;
         });
         return <div className="container" id="chat-container">
             {messages}
@@ -46,7 +62,7 @@ class Chat extends React.Component {
                     <input type="text" name="message" placeholder={this.props.translate.MESSAGE} className="form-control"
                            value={this.state.message} onChange={::this.handleInputChange} />
                     <div className="input-group-btn">
-                        <button type="submit" className="btn btn-primary glyphicon glyphicon-send"/>
+                        <button type="submit" className="btn btn-success glyphicon glyphicon-send"/>
                     </div>
                 </div>
             </form>
