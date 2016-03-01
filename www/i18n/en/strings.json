@@ -9,5 +9,10 @@
   "INVALID_CREDENTIALS":"Name or password invalid",
   "SERVER_ERROR":"Server error",
   "NAME_ALREADY_TAKEN":"Name already taken",
-  "ENTER_AS":"Enter as"
+  "ENTER_AS":"Enter as",
+  "CHAT":"Chat",
+  "SETTINGS":"Settings",
+  "LANGUAGE":"Language",
+  "ENGLISH":"English",
+  "RUSSIAN":"Русский"
 }

@@ -3,34 +3,27 @@
  */
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router'
-import Chat from './Chat';
+import NavBar from '../../helpers/NavBar';
 
-class Main extends React.Component {
-    static contextTypes = {
-        store: PropTypes.any,
-        history: PropTypes.object.isRequired
-    };
+export default class Main extends React.Component {
+    getTitle() {
+        let title = this.props.translate[this.props.children.props.route.path.toUpperCase()];
+        if (this.props.history.isActive('/chat')) {
+            title += ` (${this.props.location})`;
+        }
 
-    constructor(props) {
-        super(props);
-        this.state = {};
+        return title;
     }
 
     render() {
         return <div>
-            <nav className='navbar navbar-fixed-top bg-primary'>
-                <span href="#" className="navbar-brand">{this.props.location}</span>
-                <i className="navbar-brand pull-right glyphicon glyphicon-cog"/>
-            </nav>
+            <NavBar title={::this.getTitle()} history={this.props.history} />
             {this.props.children}
-            <Chat/>
         </div>;
     }
 }
 export default connect(state=> {
     return {
-        state: state.state,
         translate: state.state.translations,
         location: state.state.location
     }

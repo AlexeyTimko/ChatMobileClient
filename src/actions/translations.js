@@ -31,8 +31,11 @@ var getTranslations = function(dispatch){
     }
 };
 
-export default function setTranslations() {
+export default function setTranslations(language = '') {
     return dispatch => {
+        if(language.length > 0){
+            localStorage.LANG = language;
+        }
         if(localStorage.LANG === undefined){
             if(navigator.globalization !== undefined){
                 navigator.globalization.getPreferredLanguage(

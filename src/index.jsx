@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Router from 'react-router';
+import {Router, browserHistory} from 'react-router';
 import {Provider} from 'react-redux';
 import {routes} from './helpers/routes';
 import {store} from './helpers/store';
@@ -30,7 +30,7 @@ document.addEventListener('deviceready', () => {
         store.dispatch(socketEvents());
         ReactDOM.render(
             <Provider store={store}>
-                <Router>{routes}</Router>
+                <Router history={browserHistory}>{routes}</Router>
             </Provider>,
             document.getElementById('app')
         );

@@ -1,7 +1,20 @@
 @import "bootstrap";
 @import "animate";
+
+body{
+  padding-top: 55px;
+  a{
+    color: white;
+    &:hover,
+    &:focus,
+    &:active{
+      color: $gray;
+      background-color: $brand-primary;
+    }
+  }
+}
+
 .auth-container{
-  margin-top: 35%;
   .nav{
     li{
       a{
@@ -22,14 +35,10 @@
     padding: 20px;
   }
 }
-.navbar.navbar-fixed-top{
-  box-shadow: 0 0px 5px 0 $brand-primary;
-}
 
 #chat-container {
   width: 100%;
   margin-bottom: 40px;
-  margin-top: 55px;
 
   p{
     border: 2px solid $brand-info;
@@ -57,6 +66,14 @@
       strong{
         color: $brand-success
       }
+    }
+  }
+}
+.nav{
+  &.nav-stacked{
+
+    li{
+      border-bottom: 1px solid;
     }
   }
 }

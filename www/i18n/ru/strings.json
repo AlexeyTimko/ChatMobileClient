@@ -9,5 +9,10 @@
   "INVALID_CREDENTIALS":"Логин или пароль неверны",
   "SERVER_ERROR":"Ошибка сервера",
   "NAME_ALREADY_TAKEN":"Логин занят",
-  "ENTER_AS":"Войти как"
+  "ENTER_AS":"Войти как",
+  "CHAT":"Чат",
+  "SETTINGS":"Настройки",
+  "LANGUAGE":"Язык",
+  "ENGLISH":"English",
+  "RUSSIAN":"Русский"
 }

@@ -7832,25 +7832,27 @@ button.close {
   -webkit-animation-name: slideOutUp;
   animation-name: slideOutUp; }
 
-.auth-container {
-  margin-top: 35%; }
-  .auth-container .nav li a {
+body {
+  padding-top: 55px; }
+  body a {
     color: white; }
-    .auth-container .nav li a:hover, .auth-container .nav li a:focus {
-      color: white;
+    body a:hover, body a:focus, body a:active {
+      color: #555555;
       background-color: #337ab7; }
-  .auth-container .nav li.active a {
-    background-color: #337ab7; }
-  .auth-container form {
-    padding: 20px; }
 
-.navbar.navbar-fixed-top {
-  box-shadow: 0 0px 5px 0 #337ab7; }
+.auth-container .nav li a {
+  color: white; }
+  .auth-container .nav li a:hover, .auth-container .nav li a:focus {
+    color: white;
+    background-color: #337ab7; }
+.auth-container .nav li.active a {
+  background-color: #337ab7; }
+.auth-container form {
+  padding: 20px; }
 
 #chat-container {
   width: 100%;
-  margin-bottom: 40px;
-  margin-top: 55px; }
+  margin-bottom: 40px; }
   #chat-container p {
     border: 2px solid #5bc0de;
     width: 90%;
@@ -7871,6 +7873,9 @@ button.close {
       float: right; }
       #chat-container p.self strong {
         color: #5cb85c; }
+
+.nav.nav-stacked li {
+  border-bottom: 1px solid; }
 
 .input-group.chat-input input,
 .input-group.chat-input button {

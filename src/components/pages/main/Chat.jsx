@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import * as constants from '../../../constants/';
 
-
 class Chat extends React.Component {
     static contextTypes = {
         store: PropTypes.any,
