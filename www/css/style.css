@@ -7873,6 +7873,8 @@ body {
       float: right; }
       #chat-container p.self strong {
         color: #5cb85c; }
+    #chat-container p.preview {
+      opacity: 0.8; }
 
 .smile {
   display: inline-block;

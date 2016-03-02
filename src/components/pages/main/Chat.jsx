@@ -25,13 +25,14 @@ class Chat extends React.Component {
     handleInputChange(event) {
         this.setState({
             [event.target.name]: event.target.value
-        })
+        });
+        document.body.scrollTop = document.body.scrollHeight;
     }
 
     handleSubmit(event) {
         event.preventDefault();
         let message = this.state.message.trim();
-        if(message != ''){
+        if (message != '') {
             this.props.socket.emit('add message', {message});
         }
         this.setState({
@@ -43,17 +44,17 @@ class Chat extends React.Component {
         document.body.scrollTop = document.body.scrollHeight;
     }
 
-    parseMessage(message){
+    parseMessage(message) {
         message = message.replace(/<[^>]+>/gi, '');
-        _.forEach(smiles, function(value, key) {
-            if(message.indexOf(key) >= 0){
+        _.forEach(smiles, function (value, key) {
+            if (message.indexOf(key) >= 0) {
                 message = message.split(key).join(`##${key}##`);
             }
         });
-        message = _.map(message.split('##'), function(value, key){
-            if(smiles[value] !== undefined){
-                return <Smile key={key} type={value} />;
-            }else{
+        message = _.map(message.split('##'), function (value, key) {
+            if (smiles[value] !== undefined) {
+                return <Smile key={key} type={value}/>;
+            } else {
                 return <span key={key}>{value}</span>;
             }
         });
@@ -61,16 +62,17 @@ class Chat extends React.Component {
         return message;
     }
 
-    toggleSmiles(event){
+    toggleSmiles(event) {
         event.preventDefault();
         this.setState({showSmiles: !this.state.showSmiles});
     }
 
-    pickSmile(type){
+    pickSmile(type) {
         this.setState({
             message: this.state.message + type,
             showSmiles: false
         });
+        document.body.scrollTop = document.body.scrollHeight;
     }
 
     render() {
@@ -87,20 +89,28 @@ class Chat extends React.Component {
                 };
             return <p className={'text-primary ' + ((mes.userId == this.props.auth.user._id)?'self':'')}
                       key={key}>
-                <strong>{mes.user}</strong>{this.parseMessage(mes.text)}<small>{date.toLocaleString(localStorage.LANG, dateOptions)}</small>
+                <strong>{mes.user}</strong>{this.parseMessage(mes.text)}
+                <small>{date.toLocaleString(localStorage.LANG, dateOptions)}</small>
             </p>;
         });
         let smilesContent = _.map(smiles, (val, key) => {
-            return <Smile onClick={() => {this.pickSmile(key)}} key={key} type={key} />;
+            return <Smile onClick={() => {this.pickSmile(key)}} key={key} type={key}/>;
         });
         return <div className="container" id="chat-container">
             {messages}
+            {!this.state.message.length ||
+            <p className="text-primary self preview">
+                <strong>{this.props.auth.user.nickname}</strong>
+                {this.parseMessage(this.state.message)}
+                <small>{this.props.translate.DATE}</small>
+            </p>}
             <div className={'container smiles-container '+(this.state.showSmiles?'show':'hide')}>{smilesContent}</div>
             <form style={{position: 'fixed', bottom: 0, left: 0, right: 0}}
                   className="form-inline" onSubmit={::this.handleSubmit}>
                 <div className="input-group chat-input">
                     <div className="input-group-btn">
-                        <button onClick={::this.toggleSmiles} className="btn btn-warning glyphicon glyphicon-star-empty"/>
+                        <button onClick={::this.toggleSmiles}
+                                className="btn btn-warning glyphicon glyphicon-star-empty"/>
                     </div>
                     <input type="text" name="message" placeholder={this.props.translate.MESSAGE}
                            className="form-control"

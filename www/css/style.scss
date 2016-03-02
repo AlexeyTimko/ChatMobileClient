@@ -67,6 +67,9 @@ body{
         color: $brand-success
       }
     }
+    &.preview{
+      opacity: 0.8;
+    }
   }
 }
 .smile{
