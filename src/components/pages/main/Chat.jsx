@@ -72,7 +72,7 @@ class Chat extends React.Component {
             message: this.state.message + type,
             showSmiles: false
         });
-        document.body.scrollTop = document.body.scrollHeight;
+        setTimeout(() => {document.body.scrollTop = document.body.scrollHeight}, 200);
     }
 
     render() {
