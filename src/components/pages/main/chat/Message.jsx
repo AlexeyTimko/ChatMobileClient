@@ -53,7 +53,7 @@ export default class Message extends React.Component {
         let mes = this.props.message,
             date = new Date(mes.date),
             self = this.props.my?'self':'';
-        return <div style={this.state.style} className={`cloud cloud-${this.state.cloudType} ${this.state.size} ${self}`}>
+        return <div style={this.state.style} className={`animated zoomIn cloud cloud-${this.state.cloudType} ${this.state.size} ${self}`}>
             <strong>{mes.user}</strong>{this.parseMessage(mes.text)}
             <small>{date.toLocaleString(localStorage.LANG, this.dateOptions)}</small>
         </div>;
