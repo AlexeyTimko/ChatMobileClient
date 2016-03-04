@@ -7850,35 +7850,106 @@ body {
 .auth-container form {
   padding: 20px; }
 
+@font-face {
+  font-family: 'digitalstripcyrillicregular';
+  src: url("../fonts/chat/digitalstripcyrillic-webfont.eot");
+  src: url("../fonts/chat/digitalstripcyrillic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/chat/digitalstripcyrillic-webfont.woff2") format("woff2"), url("../fonts/chat/digitalstripcyrillic-webfont.woff") format("woff"), url("../fonts/chat/digitalstripcyrillic-webfont.ttf") format("truetype"), url("../fonts/chat/digitalstripcyrillic-webfont.svg#digitalstripcyrillicregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
 #chat-container {
+  font-family: 'digitalstripcyrillicregular', cursive;
   width: 100%;
-  margin-bottom: 40px; }
-  #chat-container p {
-    border: 2px solid #5bc0de;
-    width: 90%;
-    padding: 5px;
-    background-color: white;
-    border-radius: 15px;
-    clear: right;
-    word-break: break-word; }
-    #chat-container p strong {
-      display: block; }
-    #chat-container p small {
-      display: block;
-      color: #777777;
-      font-size: x-small;
-      text-align: right; }
-    #chat-container p.self {
-      border-color: #5cb85c;
+  margin-bottom: 34px;
+  background: url(../img/chat_bg.png); }
+  #chat-container .cloud {
+    background: url(../img/clouds/1.png) no-repeat;
+    background-size: 100% 100%;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-variant: small-caps;
+    min-width: 50%;
+    max-width: 85%;
+    height: 75px;
+    word-break: break-word;
+    position: relative;
+    float: left;
+    margin: 10px 5px;
+    padding: 10px 15px; }
+    #chat-container .cloud.cloud-1 {
+      background-image: url(../img/clouds/1.png);
       float: right; }
-      #chat-container p.self strong {
-        color: #5cb85c; }
-    #chat-container p.preview {
-      opacity: 0.8; }
+      #chat-container .cloud.cloud-1.big {
+        padding-top: 20px; }
+    #chat-container .cloud.cloud-2 {
+      background-image: url(../img/clouds/2.png);
+      height: 90px; }
+      #chat-container .cloud.cloud-2.big {
+        height: 140px; }
+      #chat-container .cloud.cloud-2.vbig {
+        height: 180px; }
+      #chat-container .cloud.cloud-2.huge {
+        height: 220px; }
+      #chat-container .cloud.cloud-2 small {
+        bottom: 30px; }
+    #chat-container .cloud.cloud-3 {
+      background-image: url(../img/clouds/3.png);
+      float: right; }
+    #chat-container .cloud.cloud-4 {
+      background-image: url(../img/clouds/4.png);
+      padding: 24px 54px;
+      font-size: 13px;
+      height: 80px; }
+      #chat-container .cloud.cloud-4.big {
+        padding-top: 46px;
+        height: 160px;
+        font-size: 14px; }
+      #chat-container .cloud.cloud-4.vbig {
+        font-size: 12px;
+        padding-top: 46px; }
+      #chat-container .cloud.cloud-4.huge {
+        font-size: 12px;
+        padding-top: 80px;
+        height: 270px; }
+      #chat-container .cloud.cloud-4 strong {
+        top: 0px;
+        left: 8px; }
+    #chat-container .cloud.big {
+      font-size: 18px;
+      height: 120px; }
+    #chat-container .cloud.vbig {
+      height: 120px;
+      font-size: 16px;
+      padding-top: 15px; }
+    #chat-container .cloud.huge {
+      font-size: 14px;
+      height: 175px;
+      padding-top: 25px; }
+    #chat-container .cloud strong {
+      display: block;
+      position: absolute;
+      background: black;
+      padding: 4px;
+      font-size: 14px;
+      border-radius: 15px;
+      top: -16px;
+      left: -7px;
+      color: #3CFF54; }
+    #chat-container .cloud.self strong {
+      color: #F552C3; }
+    #chat-container .cloud small {
+      display: block;
+      position: absolute;
+      bottom: 13px;
+      background: black;
+      padding: 2px;
+      right: 0;
+      font-size: 8px;
+      color: white; }
 
 .smile {
   display: inline-block;
-  width: 48px; }
+  width: 32px; }
 
 .container.smiles-container {
   position: fixed;
@@ -7886,8 +7957,11 @@ body {
   bottom: 34px;
   background-color: white;
   width: 100%;
-  height: 144px;
-  overflow-y: scroll; }
+  height: 105px;
+  overflow-y: scroll;
+  border-top: 2px solid #5cb85c;
+  box-shadow: 0px 0px 20px 1px black;
+  text-align: center; }
 
 .nav.nav-stacked li {
   border-bottom: 1px solid; }

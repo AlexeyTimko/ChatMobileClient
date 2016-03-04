@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 import _ from 'lodash';
 import * as constants from '../../../constants/';
 import smiles from '../../../constants/smiles';
-import Smile from '../../html/Smile';
+import Smile from './chat/Smile';
+import Message from './chat/Message';
 
 class Chat extends React.Component {
     static contextTypes = {
@@ -23,10 +24,18 @@ class Chat extends React.Component {
     }
 
     handleInputChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        });
-        document.body.scrollTop = document.body.scrollHeight;
+        if (event.target.value.length <= 100) {
+            this.setState({
+                [event.target.name]: event.target.value
+            });
+        }
+        this.scrollBottom();
+    }
+
+    scrollBottom() {
+        setTimeout(()=> {
+            document.body.scrollTop = document.body.scrollHeight;
+        }, 500)
     }
 
     handleSubmit(event) {
@@ -41,25 +50,7 @@ class Chat extends React.Component {
     }
 
     componentDidMount() {
-        document.body.scrollTop = document.body.scrollHeight;
-    }
-
-    parseMessage(message) {
-        message = message.replace(/<[^>]+>/gi, '');
-        _.forEach(smiles, function (value, key) {
-            if (message.indexOf(key) >= 0) {
-                message = message.split(key).join(`##${key}##`);
-            }
-        });
-        message = _.map(message.split('##'), function (value, key) {
-            if (smiles[value] !== undefined) {
-                return <Smile key={key} type={value}/>;
-            } else {
-                return <span key={key}>{value}</span>;
-            }
-        });
-
-        return message;
+        this.scrollBottom();
     }
 
     toggleSmiles(event) {
@@ -72,38 +63,16 @@ class Chat extends React.Component {
             message: this.state.message + type,
             showSmiles: false
         });
-        setTimeout(() => {document.body.scrollTop = document.body.scrollHeight}, 200);
     }
 
     render() {
-        let messages = _.map(this.props.messages, (mes, key) => {
-            let date = new Date(mes.date),
-                dateOptions = {
-                    year: 'numeric',
-                    month: 'numeric',
-                    day: 'numeric',
-                    timezone: 'UTC',
-                    hour: 'numeric',
-                    minute: 'numeric',
-                    second: 'numeric'
-                };
-            return <p className={'text-primary ' + ((mes.userId == this.props.auth.user._id)?'self':'')}
-                      key={key}>
-                <strong>{mes.user}</strong>{this.parseMessage(mes.text)}
-                <small>{date.toLocaleString(localStorage.LANG, dateOptions)}</small>
-            </p>;
-        });
+        let messages = _.map(this.props.messages, (mes, key) => <Message key={key} message={mes}
+                                                                         my={this.props.auth.user._id == mes.userId}/>);
         let smilesContent = _.map(smiles, (val, key) => {
             return <Smile onClick={() => {this.pickSmile(key)}} key={key} type={key}/>;
         });
         return <div className="container" id="chat-container">
             {messages}
-            {!this.state.message.length ||
-            <p className="text-primary self preview">
-                <strong>{this.props.auth.user.nickname}</strong>
-                {this.parseMessage(this.state.message)}
-                <small>{this.props.translate.DATE}</small>
-            </p>}
             <div className={'container smiles-container '+(this.state.showSmiles?'show':'hide')}>{smilesContent}</div>
             <form style={{position: 'fixed', bottom: 0, left: 0, right: 0}}
                   className="form-inline" onSubmit={::this.handleSubmit}>

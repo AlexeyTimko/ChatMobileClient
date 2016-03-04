@@ -2,7 +2,7 @@
  * Created by Timko on 02.03.2016.
  */
 import React from 'react';
-import smiles from '../../constants/smiles';
+import smiles from '../../../../constants/smiles';
 
 export default class Smile extends React.Component {
     render() {

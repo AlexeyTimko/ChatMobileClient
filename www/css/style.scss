@@ -35,46 +35,141 @@ body{
     padding: 20px;
   }
 }
+@font-face {
+  font-family: 'digitalstripcyrillicregular';
+  src: url('../fonts/chat/digitalstripcyrillic-webfont.eot');
+  src: url('../fonts/chat/digitalstripcyrillic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/chat/digitalstripcyrillic-webfont.woff2') format('woff2'),
+  url('../fonts/chat/digitalstripcyrillic-webfont.woff') format('woff'),
+  url('../fonts/chat/digitalstripcyrillic-webfont.ttf') format('truetype'),
+  url('../fonts/chat/digitalstripcyrillic-webfont.svg#digitalstripcyrillicregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
 
+}
 #chat-container {
+  font-family: 'digitalstripcyrillicregular', cursive;
   width: 100%;
-  margin-bottom: 40px;
+  margin-bottom: 34px;
+  background: url(../img/chat_bg.png);
 
-  p{
-    border: 2px solid $brand-info;
-    width: 90%;
-    padding: 5px;
-    background-color: white;
-    border-radius: 15px;
-    clear: right;
+  .cloud{
+    background: url(../img/clouds/1.png) no-repeat;
+    &.cloud-1{
+      background-image: url(../img/clouds/1.png);
+      float: right;
+
+      &.big{
+        padding-top: 20px;
+      }
+    }
+
+    &.cloud-2{
+      background-image: url(../img/clouds/2.png);
+      height: 90px;
+      &.big{
+        height: 140px;
+      }
+      &.vbig{
+        height: 180px;
+      }
+      &.huge{
+        height: 220px;
+      }
+      small{
+        bottom: 30px;
+      }
+    }
+    &.cloud-3{
+      background-image: url(../img/clouds/3.png);
+      float: right;
+    }
+    &.cloud-4{
+      background-image: url(../img/clouds/4.png);
+      padding: 24px 54px;
+      font-size: 13px;
+      height: 80px;
+      &.big{
+        padding-top: 46px;
+        height: 160px;
+        font-size: 14px;
+      }
+      &.vbig{
+        font-size: 12px;
+        padding-top: 46px;
+      }
+      &.huge{
+        font-size: 12px;
+        padding-top: 80px;
+        height: 270px;
+      }
+      strong{
+        top: 0px;
+        left: 8px;
+      }
+    }
+    background-size: 100% 100%;
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    font-variant: small-caps;
+    min-width: 50%;
+    max-width: 85%;
+    height: 75px;
     word-break: break-word;
+    position: relative;
+    float: left;
+    margin: 10px 5px;
+    padding: 10px 15px;
+    //margin-bottom: -20px;
+
+    &.big{
+      font-size: 18px;
+      height: 120px;
+      //margin-bottom: -25px;
+    }
+    &.vbig{
+      height: 120px;
+      font-size: 16px;
+      padding-top: 15px;
+      //margin-bottom: -30px;
+    }
+    &.huge{
+      font-size: 14px;
+      height: 175px;
+      padding-top: 25px;
+      //margin-bottom: -40px;
+    }
 
     strong{
       display: block;
+      position: absolute;
+      background: black;
+      padding: 4px;
+      font-size: 14px;
+      border-radius: 15px;
+      top: -16px;
+      left: -7px;
+      color: #3CFF54;
+    }
+    &.self{
+      strong{color: #F552C3;}
     }
     small{
       display: block;
-      color: $gray-light;
-      font-size: x-small;
-      text-align: right;
-    }
-
-    &.self{
-      border-color: $brand-success;
-      float: right;
-
-      strong{
-        color: $brand-success
-      }
-    }
-    &.preview{
-      opacity: 0.8;
+      position: absolute;
+      bottom: 13px;
+      background: black;
+      padding: 2px;
+      right: 0;
+      font-size: 8px;
+      color: white;
     }
   }
 }
 .smile{
   display: inline-block;
-  width: 48px;
+  width: 32px;
 }
 .container{
   &.smiles-container{
@@ -83,8 +178,11 @@ body{
     bottom: 34px;
     background-color: white;
     width: 100%;
-    height: 144px;
+    height: 105px;
     overflow-y: scroll;
+    border-top: 2px solid $brand-success;
+    box-shadow: 0px 0px 20px 1px black;
+    text-align: center;
   }
 }
 .nav{
