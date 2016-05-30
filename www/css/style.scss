@@ -1,109 +1,110 @@
 @import "bootstrap";
 @import "animate";
 
-body{
+body {
   padding-top: 55px;
-  a{
+  a {
     color: white;
     &:hover,
     &:focus,
-    &:active{
+    &:active {
       color: $gray;
       background-color: $brand-primary;
     }
   }
 }
 
-.auth-container{
-  .nav{
-    li{
-      a{
+.auth-container {
+  .nav {
+    li {
+      a {
         color: white;
         &:hover,
-        &:focus{
+        &:focus {
           color: white;
           background-color: $brand-primary;
         }
       }
-      &.active a{
+      &.active a {
         background-color: $brand-primary;
       }
     }
   }
 
-  form{
+  form {
     padding: 20px;
   }
 }
+
 @font-face {
-  font-family: 'digitalstripcyrillicregular';
-  src: url('../fonts/chat/digitalstripcyrillic-webfont.eot');
-  src: url('../fonts/chat/digitalstripcyrillic-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/chat/digitalstripcyrillic-webfont.woff2') format('woff2'),
-  url('../fonts/chat/digitalstripcyrillic-webfont.woff') format('woff'),
-  url('../fonts/chat/digitalstripcyrillic-webfont.ttf') format('truetype'),
-  url('../fonts/chat/digitalstripcyrillic-webfont.svg#digitalstripcyrillicregular') format('svg');
+  font-family: 'DigitalStripCyrillic';
+  src: url('../fonts/chat/DigitalStripCyrillic.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 
 }
+
 #chat-container {
-  font-family: 'digitalstripcyrillicregular', cursive;
+  font-family: 'DigitalStripCyrillic';
   width: 100%;
   margin-bottom: 34px;
   background: url(../img/chat_bg.png);
+  position: fixed;
+  bottom: 0;
+  top: 50px;
+  overflow-y: scroll;
 
-  .cloud{
+  .cloud {
     background: url(../img/clouds/1.png) no-repeat;
-    &.cloud-1{
+    &.cloud-1 {
       background-image: url(../img/clouds/1.png);
       float: right;
 
-      &.big{
+      &.big {
         padding-top: 20px;
       }
     }
 
-    &.cloud-2{
+    &.cloud-2 {
       background-image: url(../img/clouds/2.png);
       height: 90px;
-      &.big{
+      &.big {
         height: 140px;
       }
-      &.vbig{
+      &.vbig {
         height: 180px;
       }
-      &.huge{
+      &.huge {
         height: 220px;
       }
-      small{
+      small {
         bottom: 30px;
       }
     }
-    &.cloud-3{
+    &.cloud-3 {
       background-image: url(../img/clouds/3.png);
       float: right;
     }
-    &.cloud-4{
+    &.cloud-4 {
       background-image: url(../img/clouds/4.png);
       padding: 24px 54px;
       font-size: 13px;
       height: 80px;
-      &.big{
+      &.big {
         padding-top: 46px;
         height: 160px;
         font-size: 14px;
       }
-      &.vbig{
+      &.vbig {
         font-size: 12px;
         padding-top: 46px;
       }
-      &.huge{
+      &.huge {
         font-size: 12px;
         padding-top: 80px;
         height: 270px;
       }
-      strong{
+      strong {
         top: 0px;
         left: 8px;
       }
@@ -123,25 +124,25 @@ body{
     padding: 10px 15px;
     //margin-bottom: -20px;
 
-    &.big{
+    &.big {
       font-size: 18px;
       height: 120px;
       //margin-bottom: -25px;
     }
-    &.vbig{
+    &.vbig {
       height: 120px;
       font-size: 16px;
       padding-top: 15px;
       //margin-bottom: -30px;
     }
-    &.huge{
+    &.huge {
       font-size: 14px;
       height: 175px;
       padding-top: 25px;
       //margin-bottom: -40px;
     }
 
-    strong{
+    strong {
       display: block;
       position: absolute;
       background: black;
@@ -152,10 +153,12 @@ body{
       left: -7px;
       color: #3CFF54;
     }
-    &.self{
-      strong{color: #F552C3;}
+    &.self {
+      strong {
+        color: #F552C3;
+      }
     }
-    small{
+    small {
       display: block;
       position: absolute;
       bottom: 13px;
@@ -167,12 +170,14 @@ body{
     }
   }
 }
-.smile{
+
+.smile {
   display: inline-block;
   width: 32px;
 }
-.container{
-  &.smiles-container{
+
+.container {
+  &.smiles-container {
     position: fixed;
     left: 0;
     bottom: 34px;
@@ -185,200 +190,203 @@ body{
     text-align: center;
   }
 }
-.nav{
-  &.nav-stacked{
 
-    li{
+.nav {
+  &.nav-stacked {
+
+    li {
       border-bottom: 1px solid;
     }
   }
 }
 
 .input-group.chat-input input,
-.input-group.chat-input button{
+.input-group.chat-input span,
+.input-group.chat-input button {
   border-radius: 0;
 }
-.input-group.chat-input button{
-  top: 0;
-  padding: 6px 12px 7px;
+.input-group.chat-input {
+  button,
+  span {
+    top: 0;
+    padding: 6px 12px 7px;
+  }
 }
 
 //Loading animation
-#fountainG{
+#fountainG {
   //position:relative;
-  width:144px;
-  height:17px;
-  margin:auto;
+  width: 144px;
+  height: 17px;
+  margin: auto;
 }
 
-.fountainG{
-  position:absolute;
-  top:0;
-  background:transparent;
-  width:17px;
-  height:17px;
-  animation-name:bounce_fountainG;
-  -o-animation-name:bounce_fountainG;
-  -ms-animation-name:bounce_fountainG;
-  -webkit-animation-name:bounce_fountainG;
-  -moz-animation-name:bounce_fountainG;
-  animation-duration:2.5s;
-  -o-animation-duration:2.5s;
-  -ms-animation-duration:2.5s;
-  -webkit-animation-duration:2.5s;
-  -moz-animation-duration:2.5s;
-  animation-iteration-count:infinite;
-  -o-animation-iteration-count:infinite;
-  -ms-animation-iteration-count:infinite;
-  -webkit-animation-iteration-count:infinite;
-  -moz-animation-iteration-count:infinite;
-  animation-direction:normal;
-  -o-animation-direction:normal;
-  -ms-animation-direction:normal;
-  -webkit-animation-direction:normal;
-  -moz-animation-direction:normal;
-  transform:scale(.3);
-  -o-transform:scale(.3);
-  -ms-transform:scale(.3);
-  -webkit-transform:scale(.3);
-  -moz-transform:scale(.3);
-  border-radius:11px;
-  -o-border-radius:11px;
-  -ms-border-radius:11px;
-  -webkit-border-radius:11px;
-  -moz-border-radius:11px;
+.fountainG {
+  position: absolute;
+  top: 0;
+  background: transparent;
+  width: 17px;
+  height: 17px;
+  animation-name: bounce_fountainG;
+  -o-animation-name: bounce_fountainG;
+  -ms-animation-name: bounce_fountainG;
+  -webkit-animation-name: bounce_fountainG;
+  -moz-animation-name: bounce_fountainG;
+  animation-duration: 2.5s;
+  -o-animation-duration: 2.5s;
+  -ms-animation-duration: 2.5s;
+  -webkit-animation-duration: 2.5s;
+  -moz-animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-direction: normal;
+  -o-animation-direction: normal;
+  -ms-animation-direction: normal;
+  -webkit-animation-direction: normal;
+  -moz-animation-direction: normal;
+  transform: scale(.3);
+  -o-transform: scale(.3);
+  -ms-transform: scale(.3);
+  -webkit-transform: scale(.3);
+  -moz-transform: scale(.3);
+  border-radius: 11px;
+  -o-border-radius: 11px;
+  -ms-border-radius: 11px;
+  -webkit-border-radius: 11px;
+  -moz-border-radius: 11px;
 }
 
-#fountainG_1{
-  left:0;
-  animation-delay:1s;
-  -o-animation-delay:1s;
-  -ms-animation-delay:1s;
-  -webkit-animation-delay:1s;
-  -moz-animation-delay:1s;
+#fountainG_1 {
+  left: 0;
+  animation-delay: 1s;
+  -o-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
 }
 
-#fountainG_2{
-  left:18px;
-  animation-delay:1.25s;
-  -o-animation-delay:1.25s;
-  -ms-animation-delay:1.25s;
-  -webkit-animation-delay:1.25s;
-  -moz-animation-delay:1.25s;
+#fountainG_2 {
+  left: 18px;
+  animation-delay: 1.25s;
+  -o-animation-delay: 1.25s;
+  -ms-animation-delay: 1.25s;
+  -webkit-animation-delay: 1.25s;
+  -moz-animation-delay: 1.25s;
 }
 
-#fountainG_3{
-  left:36px;
-  animation-delay:1.5s;
-  -o-animation-delay:1.5s;
-  -ms-animation-delay:1.5s;
-  -webkit-animation-delay:1.5s;
-  -moz-animation-delay:1.5s;
+#fountainG_3 {
+  left: 36px;
+  animation-delay: 1.5s;
+  -o-animation-delay: 1.5s;
+  -ms-animation-delay: 1.5s;
+  -webkit-animation-delay: 1.5s;
+  -moz-animation-delay: 1.5s;
 }
 
-#fountainG_4{
-  left:54px;
-  animation-delay:1.7s;
-  -o-animation-delay:1.7s;
-  -ms-animation-delay:1.7s;
-  -webkit-animation-delay:1.7s;
-  -moz-animation-delay:1.7s;
+#fountainG_4 {
+  left: 54px;
+  animation-delay: 1.7s;
+  -o-animation-delay: 1.7s;
+  -ms-animation-delay: 1.7s;
+  -webkit-animation-delay: 1.7s;
+  -moz-animation-delay: 1.7s;
 }
 
-#fountainG_5{
-  left:72px;
-  animation-delay:2s;
-  -o-animation-delay:2s;
-  -ms-animation-delay:2s;
-  -webkit-animation-delay:2s;
-  -moz-animation-delay:2s;
+#fountainG_5 {
+  left: 72px;
+  animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -ms-animation-delay: 2s;
+  -webkit-animation-delay: 2s;
+  -moz-animation-delay: 2s;
 }
 
-#fountainG_6{
-  left:90px;
-  animation-delay:2.25s;
-  -o-animation-delay:2.25s;
-  -ms-animation-delay:2.25s;
-  -webkit-animation-delay:2.25s;
-  -moz-animation-delay:2.25s;
+#fountainG_6 {
+  left: 90px;
+  animation-delay: 2.25s;
+  -o-animation-delay: 2.25s;
+  -ms-animation-delay: 2.25s;
+  -webkit-animation-delay: 2.25s;
+  -moz-animation-delay: 2.25s;
 }
 
-#fountainG_7{
-  left:108px;
-  animation-delay:2.5s;
-  -o-animation-delay:2.5s;
-  -ms-animation-delay:2.5s;
-  -webkit-animation-delay:2.5s;
-  -moz-animation-delay:2.5s;
+#fountainG_7 {
+  left: 108px;
+  animation-delay: 2.5s;
+  -o-animation-delay: 2.5s;
+  -ms-animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
 }
 
-#fountainG_8{
-  left:126px;
-  animation-delay:3s;
-  -o-animation-delay:3s;
-  -ms-animation-delay:3s;
-  -webkit-animation-delay:3s;
-  -moz-animation-delay:3s;
+#fountainG_8 {
+  left: 126px;
+  animation-delay: 3s;
+  -o-animation-delay: 3s;
+  -ms-animation-delay: 3s;
+  -webkit-animation-delay: 3s;
+  -moz-animation-delay: 3s;
 }
 
-
-
-@keyframes bounce_fountainG{
-  0%{
-    transform:scale(1);
+@keyframes bounce_fountainG {
+  0% {
+    transform: scale(1);
     background-color: $brand-primary;
   }
 
-  100%{
-    transform:scale(.3);
-    background-color:rgb(255,255,255);
+  100% {
+    transform: scale(.3);
+    background-color: rgb(255, 255, 255);
   }
 }
 
-@-o-keyframes bounce_fountainG{
-  0%{
-    -o-transform:scale(1);
-    background-color:$brand-primary;
+@-o-keyframes bounce_fountainG {
+  0% {
+    -o-transform: scale(1);
+    background-color: $brand-primary;
   }
 
-  100%{
-    -o-transform:scale(.3);
-    background-color:rgb(255,255,255);
-  }
-}
-
-@-ms-keyframes bounce_fountainG{
-  0%{
-    -ms-transform:scale(1);
-    background-color:$brand-primary;
-  }
-
-  100%{
-    -ms-transform:scale(.3);
-    background-color:rgb(255,255,255);
+  100% {
+    -o-transform: scale(.3);
+    background-color: rgb(255, 255, 255);
   }
 }
 
-@-webkit-keyframes bounce_fountainG{
-  0%{
-    -webkit-transform:scale(1);
-    background-color:$brand-primary;
+@-ms-keyframes bounce_fountainG {
+  0% {
+    -ms-transform: scale(1);
+    background-color: $brand-primary;
   }
 
-  100%{
-    -webkit-transform:scale(.3);
-    background-color:rgb(255,255,255);
+  100% {
+    -ms-transform: scale(.3);
+    background-color: rgb(255, 255, 255);
   }
 }
 
-@-moz-keyframes bounce_fountainG{
-  0%{
-    -moz-transform:scale(1);
-    background-color:$brand-primary;
+@-webkit-keyframes bounce_fountainG {
+  0% {
+    -webkit-transform: scale(1);
+    background-color: $brand-primary;
   }
 
-  100%{
-    -moz-transform:scale(.3);
-    background-color:rgb(255,255,255);
+  100% {
+    -webkit-transform: scale(.3);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+@-moz-keyframes bounce_fountainG {
+  0% {
+    -moz-transform: scale(1);
+    background-color: $brand-primary;
+  }
+
+  100% {
+    -moz-transform: scale(.3);
+    background-color: rgb(255, 255, 255);
   }
 }

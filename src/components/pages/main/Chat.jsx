@@ -78,7 +78,7 @@ class Chat extends React.Component {
                   className="form-inline" onSubmit={::this.handleSubmit}>
                 <div className="input-group chat-input">
                     <div className="input-group-btn">
-                        <button onClick={::this.toggleSmiles}
+                        <span onClick={::this.toggleSmiles}
                                 className="btn btn-warning glyphicon glyphicon-star-empty"/>
                     </div>
                     <input type="text" name="message" placeholder={this.props.translate.MESSAGE}

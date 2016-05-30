@@ -27,7 +27,7 @@ export default function socketEvents() {
         }
         navigator.geolocation.watchPosition(
             (position) => {
-                processLocation(socket, dispatch, position)
+                processLocation(socket, dispatch, position);
             },
             (error) => {
                 dispatch({
